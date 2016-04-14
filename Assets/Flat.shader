@@ -4,7 +4,7 @@
 	}
 	SubShader{
 		Pass{
-			
+			Tags {"LightMode"="ForwardBase"}
 			CGPROGRAM
 
 			//vertex=type, vert=function name
@@ -38,7 +38,7 @@
 				float3 lightDirection=_WorldSpaceLightPos0.xyz;
 				
 				//diffuseReflection = _Color *_LightColor0 * dot(normalDirection, lightDirection);
-				float3 diffuseReflection = _Color * _LightColor0*dot(normalDirection,lightDirection);
+				float3 diffuseReflection = _Color * _LightColor0.xyz*dot(normalDirection,lightDirection);
 
 				//Built in variables
 				//normalize()
